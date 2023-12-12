@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://kit.fontawesome.com/4e0cbb95da.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div id="todo">
@@ -13,15 +14,17 @@
             <!-- Insert logo -->
         </div>
         <div class="new-task">
-            <input type="text" placeholder="Inserisci task" v-model="message">
+            <input type="text" placeholder="Inserisci task" @keyup.enter="addTask" v-model="message">
             <button @click="addTask">Aggiungi</button>
         </div>
         <div class="task-container">
-            <ul>
-                <li class="task" v-for="task in tasks">
-                    {{task}}
+            <ul v-if="tasks.length > 0">
+                <li class="task" v-for="(task, i) in tasks" :key="i" :class="{ 'completed': tasks.done }">
+                    {{ task.text }}
+                    <i class="fa-solid fa-x" @click="taskText(i)"></i>
                 </li>
             </ul>
+            <h2 v-else>Non ci sono nuovi task 🔥</h2>
         </div>
 
     </div>

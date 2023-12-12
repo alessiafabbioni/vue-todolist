@@ -21,16 +21,29 @@ createApp({
         return {
             message: "",
             tasks: [
-                "Fare i compiti",
-                "Fare la spesa",
-                "Fare il bucato"
+                {
+                    text: 'Fare i compiti',
+                    done: false
+                },
+                {
+                    text: 'Fare la spesa',
+                    done: true
+                },
+                {
+                    text: 'Fare il bucato',
+                    done: false
+                }
             ],
         }
     },
     methods: {
         addTask(){
-            this.tasks.push(this.message);
+            this.tasks.unshift({ text: this.message });
+            this.message = "";
 
+        },
+        taskText(indice){
+            this.tasks.splice(indice, 1);
         }
 
     },
