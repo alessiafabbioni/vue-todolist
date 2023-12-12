@@ -42,6 +42,7 @@ createApp({
             this.message = "";
 
         },
+        
         taskText(indice){
             this.tasks.splice(indice, 1);
         }
