@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="todo">
+        <div class="logo">
+            <img src="" alt="">  
+            <!-- Insert logo -->
+        </div>
+        <div class="new-task">
+            <input type="text" placeholder="Inserisci task" v-model="message">
+            <button @click="addTask">Aggiungi</button>
+        </div>
+        <div class="task-container">
+            <ul>
+                <li class="task" v-for="task in tasks">
+                    {{task}}
+                </li>
+            </ul>
+        </div>
+
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
